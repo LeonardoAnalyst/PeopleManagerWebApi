@@ -26,7 +26,7 @@
   
    # Criando um novo registro
 # Utilize a mesma url que esta no Post man, só iremos fazer as seguintes alterações:
-# Troque a ação para o tipo POST e selecione Body logo abaixo
+# Troque a ação para o tipo POST e selecione Body => raw => tipo JSON(application/json) logo abaixo
  # Troque /funcionarios/show, para /funcionarios/create,  ficara assim:
  # http://localhost<Porta>/funcionarios/create
  # Para facilitar a criação, copie um ojeto Json retornado pelo metodo list e cole no Body e altere todos os campos (id, nome, endereco, etc)
@@ -35,20 +35,18 @@
   # Apagando por ID
 # Utilize a mesma url que esta no Post man, só iremos fazer as seguintes alterações:
 # Troque a ação para o tipo DELETE
- # Troque /funcionarios/create, para /funcionarios/delete/(aqui você irá passar o id),  ficara assim:
- # http://localhost<Porta>/funcionarios/delete/3
+ # Troque /funcionarios/create, para /funcionarios/destroy/(aqui você irá passar o id),  ficara assim:
+ # http://localhost<Porta>/funcionarios/destroy/3
   # Dê um Enter e espere a reposta. Pronto! Note que no Header ou authorization a resposta irá nos retornar baseado na pesquisa por id  o registro que foi apagado em um objeto formato Json object
   
   
    # Atualizando por ID
 # Utilize a mesma url que esta no Post man, só iremos fazer as seguintes alterações:
-# Troque a ação para o tipo POST e selecione Body logo abaixo
-# Troque /funcionarios/delete/, para /funcionarios/update/(aqui você irá passar o id),  ficara assim:
+# Troque a ação para o tipo POST e selecione Body => raw => tipo JSON(application/json) logo abaixo
+# Troque /funcionarios/destroy/, para /funcionarios/update/(aqui você irá passar o id),  ficara assim:
 # http://localhost<Porta>/funcionarios/update/id
 # Para facilitar a atualização, copie um ojeto Json retornado pelo metodo list e cole no Body e altere  os campos almejados (nome, endereco, etc)
  # Dê um Enter e espere a reposta. Pronto! Note que no Header ou authorization a resposta irá nos retornar baseado na pesquisa por id o registro que foi atualizado em um objeto formato Json object
   
   # Espero que tenham conseguido fazer o uso da aplicação e tenham se interagido bastante. Qualquer dúvida estou a disposição, segue  abaixo contatos:
   # Instagram: @leozeradev / Email: codezeraoficial@gmail.com
-  
-  
