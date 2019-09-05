@@ -10,8 +10,8 @@ namespace PeopleManagerWebapi.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<string> Address { get; set; }
-        public DateTime DateInsert { get; set; }
-        public DateTime DateUpdate { get; set; }
+        public string DateInsert { get; set; }
+        public string DateUpdate { get; set; }
         public string Cpf { get; set; }
         public int Idade { get; set; }
 

@@ -9,7 +9,9 @@ using System.Web.Http;
 namespace PeopleManagerWebapi.Controllers
 {
     public class EmployeesController : ApiController
-    {
+    {     
+  
+
         List<Employee> empy = new List<Employee>
         {
             new Employee
@@ -18,7 +20,7 @@ namespace PeopleManagerWebapi.Controllers
                 Name= "Marcos Navarro",
                 Idade= 23,
                 Cpf = "125558552",
-                DateInsert = DateTime.Now,
+                DateInsert = DateTime.Now.ToString("dd/MM/yyyy"),               
                 Address= new List<string>
                 {
                     "Barro Preto",
@@ -31,7 +33,7 @@ namespace PeopleManagerWebapi.Controllers
                 Name= "Leonardo Viana ",
                 Idade= 26,
                 Cpf = "2554485225",
-                DateInsert = DateTime.Now,
+                DateInsert = DateTime.Now.ToString("dd/MM/yyyy"),
                 Address= new List<string>
                 {
                     "Caiçaras",
@@ -44,7 +46,7 @@ namespace PeopleManagerWebapi.Controllers
                 Name= "Kevin Chagas",
                 Idade= 22,
                 Cpf = "125865552",
-                DateInsert = DateTime.Now,
+                DateInsert = DateTime.Now.ToString("dd/MM/yyyy"),
                 Address= new List<string>
                 {
                     "São Salvador",
@@ -52,7 +54,8 @@ namespace PeopleManagerWebapi.Controllers
                 }
             },
         };
-        // GET api/<controller>
+
+        // LISTAR TODOS 
         [HttpGet]
         [Route("funcionarios/list")]
         public IEnumerable<Employee> Get()
@@ -60,7 +63,7 @@ namespace PeopleManagerWebapi.Controllers
             return empy;
         }
 
-        // GET api/<controller>/5
+        // LISTAR POR ID 
 
         [HttpGet]
         [Route("funcionarios/show/{id}")]
@@ -75,7 +78,7 @@ namespace PeopleManagerWebapi.Controllers
             return Ok(employee);
         }
 
-        // POST api/<controller>
+        // CREATE
         [HttpPost]
         [Route("funcionarios/create")]
         public IHttpActionResult Post([FromBody]Employee value)
@@ -89,6 +92,7 @@ namespace PeopleManagerWebapi.Controllers
             return Ok(value);
         }
 
+        // UPDATE
         [HttpPost]
         [Route("funcionarios/update/{id}")]
         public IHttpActionResult Put(int id, [FromBody]Employee value)
@@ -104,7 +108,7 @@ namespace PeopleManagerWebapi.Controllers
                 e.Name = value.Name;
                 e.Cpf = value.Cpf;
                 e.Idade = value.Idade;
-                e.DateUpdate = DateTime.Now;
+                e.DateUpdate = DateTime.Now.ToString("dd/MM/yyyy");
                 e.Address = value.Address;
                 return e;
             }).ToList();
@@ -112,9 +116,8 @@ namespace PeopleManagerWebapi.Controllers
             return Ok(employee);
         }
 
-        // DELETE api/<controller>/5
-
-        [HttpDelete]
+        // DELETE 
+        [HttpPost]
         [Route("funcionarios/destroy/{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -124,7 +127,10 @@ namespace PeopleManagerWebapi.Controllers
                 return NotFound();
             }
             empy.Remove(employee);
+
+         
             return Ok(employee);
+            
         }
     }
 }
